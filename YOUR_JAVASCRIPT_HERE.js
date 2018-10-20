@@ -1,8 +1,41 @@
 // Write your JS here
+const canvas = document.getElementById("canvas").getContext("2d");
+
+let heroIcon = {
+    icon: "S",
+    x: 10,
+    spdX: 10,
+    y: 5,
+    spdY: 10,
+};
+
+const height = 500;
+const width = 650;
+
+const message = "Stop!"
+
+setInterval(updateEntity, 50)
+
+function updateEntity(){
+    heroIcon.x += heroIcon.spdX;
+    heroIcon.y += heroIcon.spdY;
+    canvas.fillText(heroIcon.icon, heroIcon.x, heroIcon.y);
+           
+           
+    if(heroIcon.x < 0 || heroIcon.x > width){
+            console.log(message);
+            heroIcon.spdX = -heroIcon.spdX;
+    }
+    if(heroIcon.y < 0 || heroIcon.y > height){
+            console.log(message);
+            heroIcon.spdY = -heroIcon.spdY;
+    }
+};
+
+
+
 
 //Hero object
-
-
 let hero = {
     name: "Hero",
     heroic: true,
@@ -73,11 +106,12 @@ document.getElementById("bow").addEventListener("click", function () {
 
 
 function equipWeapon(name) {
-    name["weapon"] = name.inventory[0];
 
-    if (name.inventory.length === 0 || []) {
+
+    if (name.inventory.length === 0) {
         return `${name.name}'s inventory is empty!`
-    };
+    }
+    name["weapon"] = name.inventory[0];
 };
 
 
