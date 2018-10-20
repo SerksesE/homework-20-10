@@ -1,6 +1,7 @@
 // Write your JS here
 const canvas = document.getElementById("canvas").getContext("2d");
 
+//trying to get something moving on the canvas
 let heroIcon = {
     icon: "S",
     x: 10,
@@ -9,31 +10,34 @@ let heroIcon = {
     spdY: 10,
 };
 
+//measurements of the canvas
 const height = 500;
 const width = 650;
 
 const message = "Stop!"
 
-setInterval(updateEntity, 50)
+//this runs the update code every 50ms = 0.05 seconds
+setInterval(updateEntity, 500)
 
-function updateEntity(){
+//this makes the icon/letter "S" move over the canvas
+function updateEntity() {
     heroIcon.x += heroIcon.spdX;
     heroIcon.y += heroIcon.spdY;
     canvas.fillText(heroIcon.icon, heroIcon.x, heroIcon.y);
-           
-           
-    if(heroIcon.x < 0 || heroIcon.x > width){
-            console.log(message);
-            heroIcon.spdX = -heroIcon.spdX;
+
+
+    if (heroIcon.x < 0 || heroIcon.x > width) {
+        console.log(message);
+        heroIcon.spdX = -heroIcon.spdX;
     }
-    if(heroIcon.y < 0 || heroIcon.y > height){
-            console.log(message);
-            heroIcon.spdY = -heroIcon.spdY;
+    if (heroIcon.y < 0 || heroIcon.y > height) {
+        console.log(message);
+        heroIcon.spdY = -heroIcon.spdY;
     }
 };
 
 
-
+//The Assignment
 
 //Hero object
 let hero = {
@@ -52,7 +56,7 @@ let hero = {
 console.log(hero);
 
 
-//trying to make the inventory array empty
+//trying to make the inventory array empty to deal with the test weapon object
 let thing = hero.inventory;
 thing.splice(0, 1);
 console.log(thing);
