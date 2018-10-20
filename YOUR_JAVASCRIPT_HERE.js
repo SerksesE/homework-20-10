@@ -1,8 +1,41 @@
 // Write your JS here
+const canvas = document.getElementById("canvas").getContext("2d");
+
+let heroIcon = {
+    icon: "S",
+    x: 10,
+    spdX: 10,
+    y: 5,
+    spdY: 10,
+};
+
+const height = 500;
+const width = 650;
+
+const message = "Stop!"
+
+setInterval(updateEntity, 50)
+
+function updateEntity(){
+    heroIcon.x += heroIcon.spdX;
+    heroIcon.y += heroIcon.spdY;
+    canvas.fillText(heroIcon.icon, heroIcon.x, heroIcon.y);
+           
+           
+    if(heroIcon.x < 0 || heroIcon.x > width){
+            console.log(message);
+            heroIcon.spdX = -heroIcon.spdX;
+    }
+    if(heroIcon.y < 0 || heroIcon.y > height){
+            console.log(message);
+            heroIcon.spdY = -heroIcon.spdY;
+    }
+};
+
+
+
 
 //Hero object
-
-
 let hero = {
     name: "Hero",
     heroic: true,
@@ -14,8 +47,12 @@ let hero = {
     },
 };
 
+
+
 console.log(hero);
 
+
+//trying to make the inventory array empty
 let thing = hero.inventory;
 thing.splice(0, 1);
 console.log(thing);
@@ -41,7 +78,7 @@ function pickUpItem(name, item) {
     name.inventory.push(item);
 };
 
-//the dagger item
+//the item object holds multiple weapons
 let item = {
     dagger: {
         type: "dagger",
@@ -60,6 +97,8 @@ document.getElementById("dagger").addEventListener("click", function () {
     console.log(`${hero.name} picked up a ${item.dagger.type} and put it in his inventory`)
 });
 
+//on clicking the bow icon the hero will pick up that bow
+//and place it in its inventory
 document.getElementById("bow").addEventListener("click", function () {
     pickUpItem(hero, item.bow);
     console.log(`${hero.name} picked up a ${item.bow.type} and put it in his inventory`)
@@ -67,11 +106,12 @@ document.getElementById("bow").addEventListener("click", function () {
 
 
 function equipWeapon(name) {
-    name["weapon"] = name.inventory[0];
 
-    if (name.inventory.length === 0 || []) {
+
+    if (name.inventory.length === 0) {
         return `${name.name}'s inventory is empty!`
-    };
+    }
+    name["weapon"] = name.inventory[0];
 };
 
 
@@ -79,6 +119,7 @@ document.getElementById("bag").addEventListener("click", function () {
     equipWeapon(hero);
     console.log(`${hero.name} equiped a new weapon!`)
 });
+
 
 
 
