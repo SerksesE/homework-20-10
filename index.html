@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mocha Tests</title>
+    <link href="https://unpkg.com/mocha@4.0.1/mocha.css" rel="stylesheet" />
+</head>
+<body>
+
+
+  <!-- YOUR HTML HERE -->
+  <!-- <canvas id="canvas" width="1000px" height="800px" style="border: 1px solid black;"></canvas> -->
+
+  <img src="./images/tavern.png" id="inn">
+
+  <img src="./images/dagger.png" id="dagger">
+
+  <img src="./images/knapsack.png" id="bag">
+
+  <img src="./images/bow.png" id="bow">
+
+  <div>
+    <form id="form" onsubmit="changeName();">
+      <input type="text" id="newName" autocomplete="off" placeholder="Choose your hero's name!">
+      <div id="nameHolder">
+      Hero name: <label></label>
+      </div>
+    </form>
+  </div>
+
+ 
+
+
+  <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
+  <button onclick="mocha.checkLeaks(); mocha.run();">Run the tests!</button>
+  <div id="mocha"></div>
+
+  <script src="https://unpkg.com/chai@4.1.2/chai.js"></script>
+  <script src="https://unpkg.com/mocha@4.0.1/mocha.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sinon@3/pkg/sinon.js"></script>
+  <script>mocha.setup('bdd')</script>
+  <script src="YOUR_JAVASCRIPT_HERE.js"></script>
+  <script src="game_logic.test.js"></script>
+
+</body>
+</html>
