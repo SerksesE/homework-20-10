@@ -14,8 +14,12 @@ let hero = {
     },
 };
 
+
+
 console.log(hero);
 
+
+//trying to make the inventory array empty
 let thing = hero.inventory;
 thing.splice(0, 1);
 console.log(thing);
@@ -41,7 +45,7 @@ function pickUpItem(name, item) {
     name.inventory.push(item);
 };
 
-//the dagger item
+//the item object holds multiple weapons
 let item = {
     dagger: {
         type: "dagger",
@@ -60,6 +64,8 @@ document.getElementById("dagger").addEventListener("click", function () {
     console.log(`${hero.name} picked up a ${item.dagger.type} and put it in his inventory`)
 });
 
+//on clicking the bow icon the hero will pick up that bow
+//and place it in its inventory
 document.getElementById("bow").addEventListener("click", function () {
     pickUpItem(hero, item.bow);
     console.log(`${hero.name} picked up a ${item.bow.type} and put it in his inventory`)
@@ -79,6 +85,7 @@ document.getElementById("bag").addEventListener("click", function () {
     equipWeapon(hero);
     console.log(`${hero.name} equiped a new weapon!`)
 });
+
 
 
 

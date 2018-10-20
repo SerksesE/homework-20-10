@@ -1,41 +1,54 @@
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <title>Mocha Tests</title>
-    <link href="https://unpkg.com/mocha@4.0.1/mocha.css" rel="stylesheet" />
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+  <link href="https://unpkg.com/mocha@4.0.1/mocha.css" rel="stylesheet" />
+  <link href="./styles/style.css" type="text/css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline" rel="stylesheet">
 </head>
+
 <body>
+  <div class="container">
 
+    <!-- YOUR HTML HERE -->
+    <!-- <canvas id="canvas" width="1000px" height="800px" style="border: 1px solid black;"></canvas> -->
+    <div class="header">
+      <h1>The Click Adventure Game</h1>
+    </div>
+    <div class="icon">
+      <img src="./images/tavern.png" id="inn">
 
-  <!-- YOUR HTML HERE -->
-  <!-- <canvas id="canvas" width="1000px" height="800px" style="border: 1px solid black;"></canvas> -->
+      <img src="./images/dagger.png" id="dagger">
 
-  <img src="./images/tavern.png" id="inn">
+      <img src="./images/knapsack.png" id="bag">
 
-  <img src="./images/dagger.png" id="dagger">
+      <img src="./images/bow.png" id="bow">
 
-  <img src="./images/knapsack.png" id="bag">
+      <img src="./images/display.png" id="displayIcon">
+    </div>
 
-  <img src="./images/bow.png" id="bow">
+    <div class="playField">
+      <canvas class="canvas"></canvas>
+    </div>
 
+    < <ul id="display container">
+      <li id="display item">
+        <label id="display"></label>
+      </li>
+      </ul>
 
-<ul id="display container">
-  <li id="display item">
-    <label id="display"></label>
-  </li>
-</ul>
-
-  <div>
-    <form id="form" onsubmit="changeName();">
-      <input type="text" id="newName" autocomplete="off" placeholder="Choose your hero's name!">
-      <div id="nameHolder">
-      Hero name: <label></label>
+      <div>
+        <form id="form" onsubmit="changeName();">
+          <input type="text" id="newName" autocomplete="off" placeholder="Choose your hero's name!">
+          <div id="nameHolder">
+            Hero name: <label></label>
+          </div>
+        </form>
       </div>
-    </form>
+
+
   </div>
-
- 
-
 
   <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
   <button onclick="mocha.checkLeaks(); mocha.run();">Run the tests!</button>
@@ -49,4 +62,5 @@
   <script src="game_logic.test.js"></script>
 
 </body>
+
 </html>
